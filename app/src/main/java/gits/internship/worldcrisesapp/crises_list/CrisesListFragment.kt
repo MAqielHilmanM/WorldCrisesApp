@@ -2,29 +2,50 @@ package gits.internship.worldcrisesapp.crises_list
 
 
 import android.os.Bundle
-import android.app.Fragment
+import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
 import gits.internship.worldcrisesapp.R
+import gits.internship.worldcrisesapp.databinding.CrisesListFragmentBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- *
- */
 class CrisesListFragment : Fragment() {
+
+    private lateinit var viewBinding : CrisesListFragmentBinding
+    private lateinit var crisesAdapter : CrisesListAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.crises_list_fragment, container, false)
+        viewBinding = CrisesListFragmentBinding.inflate(inflater,container,false).apply {
+            vm = (activity as CrisesListActivity).obtainViewModel()
+        }
+        return viewBinding.root
     }
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        setupCrises()
+    }
+
+    private fun setupCrises() {
+        val viewModel = viewBinding.vm
+        if (viewModel != null) {
+            crisesAdapter = CrisesListAdapter(viewModel.crisesLists,viewModel)
+            viewBinding.rvFragmentList.adapter = crisesAdapter
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewBinding.vm?.start()
+    }
+
+    companion object {
+        fun newInstance() = CrisesListFragment().apply {
+
+        }
+    }
 
 }

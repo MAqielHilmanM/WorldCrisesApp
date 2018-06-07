@@ -8,6 +8,9 @@ import gits.internship.worldcrisesapp.data.source.CrisesDataSource
 class CrisesLocalDataSource private constructor(
         private val preference: SharedPreferences
 ) : CrisesDataSource {
+    override fun getCrisesDetail(callback: CrisesDataSource.GetCrisesDetailCallback, id: String) {
+        // NOTHING
+    }
 
     override fun getCrises(callback: CrisesDataSource.GetCrisesCallback) {
         //NOTHING
