@@ -15,8 +15,7 @@ interface CrisesRemoteService {
     @GET("crises/{id}")
     fun getCrisesDetail(
             @Path("id") id:String,
-            @Query("auth_token") auth_token:String,
-            @Query("output") output : String? = null
+            @Query("auth_token") auth_token:String
     ) : Observable<Crises>
 
     @GET("crises")
@@ -25,7 +24,6 @@ interface CrisesRemoteService {
             @Query("type") type : String? = null,
             @Query("level") level : String?= null,
             @Query("event_id") event_id : String?= null,
-            @Query("output") output : String?= null,
             @Query("callback") callback : String?= null,
             @Query("lat") lat : String?= null,
             @Query("lon") lon : String?= null,
