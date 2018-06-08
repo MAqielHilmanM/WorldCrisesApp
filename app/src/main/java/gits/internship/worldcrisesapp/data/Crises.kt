@@ -1,5 +1,7 @@
 package gits.internship.worldcrisesapp.data
 
+import java.io.Serializable
+
 data class Crises(
         var _id : String? = null,
         var created_at : String? = null,
@@ -25,20 +27,21 @@ data class Crises(
         var schema_endDate : String? = null,
         var schema_startDate : String? = null,
         var updated_at : String? = null
-)
+) : Serializable
+
 data class Severity(
         var value : Double? = 0.0,
         var unit : String? = null
-)
+) : Serializable
 
 data class Vulnerability(
         var value : Int? = 0
-)
+) : Serializable
 
 data class Population(
         var value : Int? = 0,
         var unit : String? = null
-)
+) : Serializable
 
 data class Resource(
         var _id : String? = null,
@@ -48,4 +51,4 @@ data class Resource(
         var dc_title : String? = null,
         var dc_type : String? = null,
         var rdf_resource : String? = null
-)
+) : Serializable

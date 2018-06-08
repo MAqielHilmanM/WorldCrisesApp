@@ -1,11 +1,15 @@
 package gits.internship.worldcrisesapp.crises_list
 
+import android.database.Observable
 import android.databinding.DataBindingUtil
+import android.databinding.ObservableField
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import gits.internship.worldcrisesapp.R
 import gits.internship.worldcrisesapp.data.Crises
+import gits.internship.worldcrisesapp.data.Resource
 import gits.internship.worldcrisesapp.databinding.CrisesListRowBinding
 
 class CrisesListAdapter(private var crises : List<Crises>, private var crisesListViewModel: CrisesListViewModel) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
