@@ -47,5 +47,4 @@ class CrisesListFragment : Fragment() {
 
         }
     }
-
 }
