@@ -39,11 +39,11 @@ class CrisesDetailActivity : AppCompatActivity() {
 
         val data = intent.extras.get(CrisesListActivity.EXTRA_LIST_SERIALIZE) as Crises
 
+        mActivity = this
         setupToolbar(data)
         setupCoolbar(data)
         setupViewModel()
         setupFragment(data)
-        mActivity = this
     }
 
     private fun setupViewModel() {
@@ -57,7 +57,6 @@ class CrisesDetailActivity : AppCompatActivity() {
     }
 
     private fun setupFragment(data: Crises) {
-
         supportFragmentManager.findFragmentById(R.id.frame_detail_content)
         CrisesDetailFragment.newInstance(data).let {
             replaceFragmentInActivity(it, R.id.frame_detail_content)
@@ -87,9 +86,9 @@ class CrisesDetailActivity : AppCompatActivity() {
 
     private fun setupToolbar(data: Crises) {
         setupActionBar(R.id.toolbar) {
-            setTitle(data.dc_subject!!.get(0))
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowHomeEnabled(true)
+
         }
     }
 

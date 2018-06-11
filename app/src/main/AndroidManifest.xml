@@ -10,7 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".crises_detail.CrisesDetailActivity" />
+        <activity android:name=".crises_detail.CrisesDetailActivity" android:parentActivityName=".crises_list.CrisesListActivity" />
         <activity android:name=".crises_list.CrisesListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

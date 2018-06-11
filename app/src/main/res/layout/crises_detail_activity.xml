@@ -6,12 +6,10 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:context=".crises_list.CrisesListActivity">
-
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="400dp"
         android:fitsSystemWindows="true">
-
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/collapsing_toolbar"
             android:layout_width="match_parent"
@@ -22,7 +20,6 @@
             app:expandedTitleMarginEnd="64dp"
             app:expandedTitleMarginStart="48dp"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
-
             <ImageView
                 android:id="@+id/iv_detail_header"
                 android:layout_width="match_parent"
@@ -51,11 +48,9 @@
                 app:layout_scrollFlags="scroll|enterAlways"
                 app:layout_collapseMode="pin"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
-
             </android.support.v7.widget.Toolbar>
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
-
     <FrameLayout
         android:id="@+id/frame_detail_content"
         android:layout_width="match_parent"

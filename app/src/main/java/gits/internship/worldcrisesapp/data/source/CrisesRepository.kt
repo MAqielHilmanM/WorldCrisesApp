@@ -8,21 +8,6 @@ class CrisesRepository(
         val remoteDataSource: CrisesDataSource,
         val localDataSource: CrisesLocalDataSource
 ) : CrisesDataSource {
-    override fun getCrisesDetail(callback: CrisesDataSource.GetCrisesDetailCallback, id: String) {
-        remoteDataSource.getCrisesDetail(object : CrisesDataSource.GetCrisesDetailCallback{
-            override fun onCrisesLoaded(crises: Crises) {
-                callback.onCrisesLoaded(crises)
-            }
-
-            override fun onError(msg: String?) {
-                callback.onError(msg)
-            }
-
-            override fun onNotAvailable() {
-                callback.onNotAvailable()
-            }
-        },id)
-    }
 
     override fun getCrises(callback: CrisesDataSource.GetCrisesCallback) {
         remoteDataSource.getCrises(object : CrisesDataSource.GetCrisesCallback {
@@ -38,6 +23,22 @@ class CrisesRepository(
                 callback.onNotAvailable()
             }
         })
+    }
+
+    override fun getCrisesDetail(callback: CrisesDataSource.GetCrisesDetailCallback, id: String) {
+        remoteDataSource.getCrisesDetail(object : CrisesDataSource.GetCrisesDetailCallback{
+            override fun onCrisesLoaded(crises: Crises) {
+                callback.onCrisesLoaded(crises)
+            }
+
+            override fun onError(msg: String?) {
+                callback.onError(msg)
+            }
+
+            override fun onNotAvailable() {
+                callback.onNotAvailable()
+            }
+        },id)
     }
 
     companion object {

@@ -13,8 +13,8 @@ import gits.internship.worldcrisesapp.utils.SingleLiveEvent
 import io.reactivex.Observable
 import kotlin.math.log
 class CrisesDetailViewModel(application: Application,private val crisesRepository: CrisesRepository) : AndroidViewModel(application){
-    val crisesData : ObservableField<Crises> = ObservableField()
-    internal val openLinkResource = SingleLiveEvent<String>()
+        val crisesData : ObservableField<Crises> = ObservableField()
+        internal val openLinkResource = SingleLiveEvent<String>()
     val id : ObservableField<String> = ObservableField()
 
     fun start(){
