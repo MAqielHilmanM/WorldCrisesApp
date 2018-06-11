@@ -54,7 +54,4 @@ object CrisesListBinding {
         }
 
     }
-
-
-
 }

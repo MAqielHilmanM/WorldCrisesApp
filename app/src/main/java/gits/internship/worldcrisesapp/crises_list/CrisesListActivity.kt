@@ -57,7 +57,7 @@ class CrisesListActivity : AppCompatActivity() , CrisesListItemListener {
 
     private fun setupToolbar() {
         setupActionBar(R.id.toolbar){
-            title = "World Crises"
+            title = ""
         }
     }
 

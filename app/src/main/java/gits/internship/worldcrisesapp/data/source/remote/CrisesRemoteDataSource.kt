@@ -11,19 +11,6 @@ object CrisesRemoteDataSource : CrisesDataSource{
 
     private val service = CrisesRemoteService.create()
 
-    override fun getCrisesDetail(callback: CrisesDataSource.GetCrisesDetailCallback, id: String) {
-        service.getCrisesDetail(id,Constant.BASE_AUTHTOKEN)
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeOn(Schedulers.io())
-                .subscribe({result ->
-                    kotlin.run {
-                            callback.onCrisesLoaded(result)
-                    }
-                },{
-                    error -> callback.onError(error.message)
-                })
-    }
-
     override fun getCrises(callback: CrisesDataSource.GetCrisesCallback) {
         service.getCrisesList(auth_token = Constant.BASE_AUTHTOKEN)
                 .observeOn(AndroidSchedulers.mainThread())
@@ -39,5 +26,19 @@ object CrisesRemoteDataSource : CrisesDataSource{
                     callback.onError(error.message)
                 })
     }
+
+    override fun getCrisesDetail(callback: CrisesDataSource.GetCrisesDetailCallback, id: String) {
+        service.getCrisesDetail(id,Constant.BASE_AUTHTOKEN)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe({result ->
+                    kotlin.run {
+                            callback.onCrisesLoaded(result)
+                    }
+                },{
+                    error -> callback.onError(error.message)
+                })
+    }
+
 
 }
